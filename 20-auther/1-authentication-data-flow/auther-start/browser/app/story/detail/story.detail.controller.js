@@ -6,7 +6,6 @@ app.controller('StoryDetailCtrl', function ($scope, currentUser, authFactory, st
 
   $scope.isUser = authFactory.isUser(story.author.name)
 
-  console.log($scope.isUser);
   $scope.$watch('story', function () {
     $scope.story.save();
   }, true);

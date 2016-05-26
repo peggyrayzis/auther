@@ -20,8 +20,7 @@ app.directive('userItem', function (authFactory) {
           else scope.user.save();
         }, true);
       }
-      scope.isUser = authFactory.isUser(scope.user.name)
-      console.log('i am the scope user', scope.user)
+      scope.isUser = authFactory.isUser(scope.user.name);
       scope.removeUser = function () {
         scope.user.destroy()
         .then(function () {
@@ -29,5 +28,5 @@ app.directive('userItem', function (authFactory) {
         });
       };
     }
-  }
+  };
 });
