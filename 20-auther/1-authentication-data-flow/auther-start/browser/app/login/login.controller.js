@@ -1,10 +1,12 @@
-app.controller('loginCtrl', function($scope, $state, currentUser, authFactory){
+app.controller('loginCtrl', function($scope, $state, currentUser, authFactory, User, $http){
+
+
 	$scope.login = function(){
-		
-		currentUser.email = $scope.user.email;
 
 		authFactory.submitLogin($scope.user)
 		.then(function(user){
+			currentUser.name = user.name
+			currentUser.isAdmin = user.isAdmin
 			$state.go('stories');
 		});
 

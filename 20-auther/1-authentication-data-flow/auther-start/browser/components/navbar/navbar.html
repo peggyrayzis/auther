@@ -23,6 +23,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li ng-show="currentUser.name != ''">hello, {{currentUser.name}}!</li>
         <li ui-sref-active="active">
           <a ui-sref="signup">signup</a>
         </li>

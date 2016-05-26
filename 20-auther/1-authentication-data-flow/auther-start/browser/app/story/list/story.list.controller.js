@@ -1,12 +1,11 @@
 'use strict';
 
-app.controller('StoryListCtrl', function ($scope, stories, currentUser, Story, users) {
+app.controller('StoryListCtrl', function ($scope, stories, currentUser, Story, users, authFactory) {
+
   $scope.stories = stories;
   $scope.users = users;
 
-  console.log('currentuser',currentUser);
-
-
+  $scope.isUser = authFactory.isUser();
 
   $scope.newStory = new Story();
   
@@ -21,7 +20,6 @@ app.controller('StoryListCtrl', function ($scope, stories, currentUser, Story, u
   $scope.addStory = function () {
     $scope.newStory.save()
     .then(function (created) {
-      // created.author = $scope.newStory.author;
       $scope.newStory = new Story();
       $scope.stories.unshift(created);
     });

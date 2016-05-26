@@ -22,7 +22,7 @@
       </div>
       <span
         ng-if="!isForm"
-        contenteditable
+        contenteditable="{{isUser}}"
         placeholder="Jean Doe"
         ng-model="user.name"
         ng-model-options="{debounce: 500}"
@@ -46,7 +46,7 @@
       </div>
       <span
         ng-if="!isForm"
-        contenteditable
+        contenteditable="{{isUser}}"
         ng-model="user.email"
         ng-model-options="{debounce: 500}"
         eat-click>
@@ -62,7 +62,7 @@
       </div>
       <span
         ng-if="!isForm"
-        contenteditable
+        contenteditable="{{isUser}}"
         placeholder="(555) 555-5555"
         ng-model="user.phone"
         ng-model-options="{debounce: 500}"
@@ -72,6 +72,7 @@
   </div>
   <div class="media-right media-middle">
     <button
+      ng-show="isUser"
       ng-if="!isForm"
       class="btn btn-default"
       ng-click="removeUser()"

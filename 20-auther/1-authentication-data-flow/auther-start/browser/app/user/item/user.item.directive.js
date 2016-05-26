@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('userItem', function () {
+app.directive('userItem', function (authFactory) {
   return {
     restrict: 'E',
     templateUrl: '/browser/app/user/item/user.item.html',
@@ -20,6 +20,8 @@ app.directive('userItem', function () {
           else scope.user.save();
         }, true);
       }
+      scope.isUser = authFactory.isUser(scope.user.name)
+      console.log('i am the scope user', scope.user)
       scope.removeUser = function () {
         scope.user.destroy()
         .then(function () {

@@ -64,7 +64,7 @@
           <a ui-sref="user({id: story.author_id})">{{ story.author.name }}</a>
         </li>
       </ul>
-      <button class="btn btn-default btn-xs" ng-click="removeStory(story)">
+      <button class="btn btn-default btn-xs" ng-click="removeStory(story)" ng-show="isUser(story.author.name)">
         <span class="glyphicon glyphicon-remove"></span>
       </button>
     </li>
